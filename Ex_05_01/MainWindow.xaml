@@ -1,0 +1,45 @@
+﻿<Window x:Class="Ex_05_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ex_05_01"
+        mc:Ignorable="d"
+        Title="MP3 Listing" Height="180" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <!-- This is a comment -->
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Load/Save">
+                    <!-- Click on a method name and press F12 to generate it -->
+                    <MenuItem Header="_LoadPath" Click="MenuFileLoadPath_Click"/>
+                    <MenuItem Header="_SavePath" Click="MenuFileSavePath_Click"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="_Exit" Click="MenuFileExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Info">
+                <MenuItem Header="_About" Click="MenuInfoAbout_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Foreground="Blue" HorizontalAlignment="Left" Margin="5,10,0,0"
+                       Text="Enter directory:" VerticalAlignment="Top" Width="90"/>
+            <TextBox Background="HotPink" HorizontalAlignment="Left"
+                     Margin="100,10,0,0" Name="TextPath" Text="C:\Windows\"
+                     TextWrapping="NoWrap" VerticalAlignment="Top" Width="250"/>
+            <CheckBox Content="Include subfolders" Grid.Row="1"
+                      HorizontalAlignment="Left" IsChecked="True" Margin="100,10,0,0"
+                      Name="CheckBoxSubfolders" VerticalAlignment="Top"/>
+            <Button Background="#90EE90" Click="ListButton_Click"
+                    Content="Create my mp3 list!" Grid.Row="2"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </DockPanel>
+</Window>
